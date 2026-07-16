@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Welcome to Your Dashboard</h2>
+  
+<div class = "card">
+    <h3>Resources </h3>
+    <form method = "POST"> enctype = "multipart/form-data">
+        <textarea name = "resyme" placeholder="Upload your resume here to get personalized job recommendations and career guidance based on your skills and experience."></textarea>
+        <p> OR upload a file: </p>
+        <input type="file" name="resume_file" accept=".pdf,.doc,.docx">
+        <input name="role" placeholder="what do you want to become?(e.g Backed Engineer)" required>
+        <button type="submit" >Analyze Resume</button>
+    </form>
+</div>
+{% if result %}
+<div class = "red">
+    {% if result.error %}
+     <p style="color: red;">{{ result.error }}</p>
+    {% else %}
+
+    <h3> Skills</h3>
+    <ul>
+        {% for s  in result.get("skills", []) %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3> missingSkills</h3>
+       <ul>
+        {% for s  in result.get("missingSkills", []) %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3> Roadmap  </h3>
+    <ul>   
+        {% for s  in result.get("roadmap", []) %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+     <h3> Interview Questions List  </h3>
+       <ul>   
+           {% for s  in result.get("interviewQuestions", []) %}
+           <li>{{ s }}</li>
+           {% endfor %}
+      </ul>
+    
+
+</div>
+{% endif %}
+{% endblock %}

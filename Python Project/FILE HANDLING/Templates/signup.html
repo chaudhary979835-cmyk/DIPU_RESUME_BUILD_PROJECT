@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class = "auth-container">
+    <div class = "auth-card">
+        <h2>Create Account  </h2>
+        <p class = "sub-text">
+            Start your AI career journey with us. Sign up to access personalized guidance, interview preparation, project ideas, and job recommendations tailored to your goals. Join our community of aspiring AI professionals and take the first step towards a successful career in AI.
+        </p>
+        <form method = "POST">
+            <!-- Form fields will be added here -->
+             <input type="email" name="email" placeholder="Email" your email is safe with us required>
+             <input type="password" name="password" placeholder=" Create a Password" required>
+             <p class = "sub-text">Use at least 8 characters, including uppercase, lowercase, and numbers.</p>
+                <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <p class = "swiich-auth">Already have an account? <a href ="/login">Login</a>  </p>
+
+    </div>
+</div>
+{% endblock %}

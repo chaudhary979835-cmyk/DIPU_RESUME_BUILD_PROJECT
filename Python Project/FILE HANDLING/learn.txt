@@ -1,0 +1,7 @@
+venv 
+all progects same paaackages
+a>flask
+b flask 3
+with venv
+
+pip install flask sqlalchemy pymsql openai pyPDF2 python-dock
